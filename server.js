@@ -2,11 +2,10 @@ const express = require('express');
 
 const app = express();
 
-app.get('api/v1/signup', (req, res) => {
-  res.json({
-    data: 'you hit signup endpoint',
-  });
-});
+// Import routes
+const authRouter = require('./routes/authRouter');
+
+app.use('/api/v1', authRouter);
 
 const port = 8000;
 
